@@ -4,6 +4,16 @@
     <button class="close" aria-label="закрыть корзину" @click="onCloseButtonClick">
       X
     </button>
+    <div v-if="products.length > 0">
+      <p>Товары в корзине:</p>
+      <CatalogueList :products="products" :isCart="true" />
+    </div>
+    <div v-else>
+      <p>Пока что вы ничего не добавили в корзину.</p>
+      <button class="close" aria-label="закрыть корзину" @click="onCloseButtonClick">
+        <span>Перейти к выбору</span>
+      </button>
+    </div>
   </div>
 </template>
 
@@ -12,7 +22,8 @@ import { mapState } from 'vuex'
 export default {
   computed: {
     ...mapState({
-      isCartShown: 'showCart'
+      isCartShown: 'showCart',
+      products: 'selectedProducts'
     })
   },
   methods: {
@@ -31,12 +42,13 @@ export default {
     right: 0;
     top: 0;
     bottom: 0;
-    height: 100%;
+    height: 100vh;
     width: 460px;
     padding: 48px;
     background: #fff;
     box-shadow: -4px 0 16px rgba(0, 0, 0, 0.05);
     border-radius: 8px 0 0 8px;
+    overflow: auto;
 
     &.show {
       display: block;

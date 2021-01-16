@@ -1,7 +1,8 @@
 export const state = () => ({
   category: 1,
   productsList: [],
-  showCart: false
+  showCart: false,
+  selectedProducts: []
 })
 
 export const mutations = {
@@ -16,6 +17,12 @@ export const mutations = {
   },
   HIDE_CART (state) {
     state.showCart = false
+  },
+  ADD_TO_CART (state, id) {
+    state.selectedProducts.push(state.productsList.find(it => it.id === id))
+  },
+  DELETE_FROM_CART (state, id) {
+    state.selectedProducts.splice(state.productsList.indexOf(it => it.id === id), 1)
   }
 }
 

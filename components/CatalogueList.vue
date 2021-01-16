@@ -1,12 +1,14 @@
 <template>
-  <div class="catalogue">
+  <div class="catalogue" :class="{'catalogue--cart': isCart}">
     <Card
       v-for="product in products"
+      :id="product.id"
       :key="product.id"
       :photo="product.photo"
       :price="product.price"
       :name="product.name"
       :rating="product.rating"
+      :isCart="isCart"
     />
   </div>
 </template>
@@ -19,6 +21,13 @@ export default {
       required: false,
       default () {
         return []
+      }
+    },
+    isCart: {
+      type: Boolean,
+      required: true,
+      default () {
+        return false
       }
     }
   }

@@ -1,13 +1,16 @@
 <template>
-  <div class="card">
+  <div class="card" :class="{'card--cart': isCart}">
     <div class="top">
       <div class="popularity">
         <IconStar />
         <span>{{ rating }}</span>
       </div>
       <img class="image" :src="`https://frontend-test.idaproject.com${photo}`" :alt="name">
-      <button>
+      <button class="add-btn" @click="onAddToCartButtonClick(id)">
         <IconCart />
+      </button>
+      <button class="delete-btn" @click="onDeleteButtonClick(id)">
+        <IconTrash />
       </button>
     </div>
     <p class="name">
@@ -22,6 +25,10 @@
 <script>
 export default {
   props: {
+    id: {
+      type: Number,
+      required: true
+    },
     photo: {
       type: String,
       required: true
@@ -37,6 +44,21 @@ export default {
     rating: {
       type: Number,
       required: true
+    },
+    isCart: {
+      type: Boolean,
+      required: true,
+      default () {
+        return false
+      }
+    }
+  },
+  methods: {
+    onAddToCartButtonClick (id) {
+      this.$store.commit('ADD_TO_CART', id)
+    },
+    onDeleteButtonClick (id) {
+      this.$store.commit('DELETE_FROM_CART', id)
     }
   }
 }
@@ -52,6 +74,24 @@ export default {
 
     .top {
       align-items: flex-start;
+    }
+
+    .add-btn {
+      display: block;
+    }
+
+    .delete-btn {
+      display: none;
+    }
+
+    &--cart {
+      .add-btn {
+        display: none;
+      }
+
+      .delete-btn {
+        display: block;
+      }
     }
   }
 
