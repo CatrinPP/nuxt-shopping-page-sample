@@ -2,7 +2,8 @@ export const state = () => ({
   category: 1,
   productsList: [],
   showCart: false,
-  selectedProducts: []
+  selectedProducts: [],
+  sortType: 'price'
 })
 
 export const mutations = {
@@ -23,6 +24,15 @@ export const mutations = {
   },
   DELETE_FROM_CART (state, id) {
     state.selectedProducts.splice(state.productsList.indexOf(it => it.id === id), 1)
+  },
+  SORT_PRODUCTS_BY_PRICE (state) {
+    state.productsList.sort((a, b) => a.price - b.price)
+  },
+  SORT_PRODUCTS_BY_RATING (state) {
+    state.productsList.sort((a, b) => b.rating - a.rating)
+  },
+  SET_SORT_TYPE (state, sortType) {
+    state.sortType = sortType
   }
 }
 

@@ -47,7 +47,7 @@ export default {
     },
     isCart: {
       type: Boolean,
-      required: true,
+      required: false,
       default () {
         return false
       }

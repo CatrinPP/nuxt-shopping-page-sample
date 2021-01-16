@@ -22,9 +22,7 @@
           <h1 class="title">
             Каталог
           </h1>
-          <section class="sort">
-            <p>Сортировать по:</p>
-          </section>
+          <Sort />
         </div>
         <Navigation />
         <CatalogueList :products="products" />
