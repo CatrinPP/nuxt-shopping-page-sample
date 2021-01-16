@@ -46,7 +46,7 @@ export default {
   .cart-modal {
     display: none;
     position: absolute;
-    z-index: 10;
+    z-index: 30;
     right: 0;
     top: 0;
     bottom: 0;
