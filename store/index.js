@@ -3,7 +3,8 @@ export const state = () => ({
   productsList: [],
   showCart: false,
   selectedProducts: [],
-  sortType: 'price'
+  sortType: 'price',
+  successOrderStatus: false
 })
 
 export const mutations = {
@@ -33,6 +34,15 @@ export const mutations = {
   },
   SET_SORT_TYPE (state, sortType) {
     state.sortType = sortType
+  },
+  SET_SUCCESS_FORM_STATUS (state) {
+    state.successOrderStatus = true
+  },
+  UNSET_SUCCESS_FORM_STATUS (state) {
+    state.successOrderStatus = false
+  },
+  CLEAR_SELECTED_PRODUCTS (state) {
+    state.selectedProducts.length = 0
   }
 }
 

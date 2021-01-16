@@ -1,18 +1,24 @@
 <template>
   <div :class="{show: isCartShown}" class="cart-modal">
     <p>Корзина</p>
-    <button class="close" aria-label="закрыть корзину" @click="onCloseButtonClick">
+    <button class="close" aria-label="закрыть корзину" @click="closeCart">
       X
     </button>
-    <div v-if="products.length > 0">
-      <p>Товары в корзине:</p>
-      <CatalogueList :products="products" :isCart="true" />
+    <div v-if="successStatus">
+      <p>Заявка успешно отправлена</p>
     </div>
     <div v-else>
-      <p>Пока что вы ничего не добавили в корзину.</p>
-      <button class="close" aria-label="закрыть корзину" @click="onCloseButtonClick">
-        <span>Перейти к выбору</span>
-      </button>
+      <div v-if="products.length > 0">
+        <p>Товары в корзине:</p>
+        <CatalogueList :products="products" :isCart="true" />
+        <OrderForm />
+      </div>
+      <div v-else>
+        <p>Пока что вы ничего не добавили в корзину.</p>
+        <button class="close" aria-label="закрыть корзину" @click="closeCart">
+          <span>Перейти к выбору</span>
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -23,12 +29,14 @@ export default {
   computed: {
     ...mapState({
       isCartShown: 'showCart',
-      products: 'selectedProducts'
+      products: 'selectedProducts',
+      successStatus: 'successOrderStatus'
     })
   },
   methods: {
-    onCloseButtonClick () {
+    closeCart () {
       this.$store.commit('HIDE_CART')
+      this.$store.commit('UNSET_SUCCESS_FORM_STATUS')
     }
   }
 }
