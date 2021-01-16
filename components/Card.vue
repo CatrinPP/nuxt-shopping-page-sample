@@ -21,7 +21,24 @@
 
 <script>
 export default {
-  props: ['photo', 'price', 'name', 'rating']
+  props: {
+    photo: {
+      type: String,
+      required: true
+    },
+    price: {
+      type: Number,
+      required: true
+    },
+    name: {
+      type: String,
+      required: true
+    },
+    rating: {
+      type: Number,
+      required: true
+    }
+  }
 }
 </script>
 

@@ -24,14 +24,28 @@
           </section>
         </div>
         <Navigation />
-        <CatalogueList count="20" />
+        <CatalogueList :products="products" />
       </div>
     </main>
   </div>
 </template>
 
 <script>
-export default {}
+import { mapState } from 'vuex'
+export default {
+  async asyncData ({ store }) {
+    try {
+      await store.dispatch('getProductsList')
+    } catch (err) {
+      console.error(err)
+    }
+  },
+  computed: {
+    ...mapState({
+      products: 'productsList'
+    })
+  }
+}
 </script>
 
 <style>

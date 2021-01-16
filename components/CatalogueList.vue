@@ -13,14 +13,13 @@
 
 <script>
 export default {
-  async fetch () {
-    this.products = await fetch(
-      'https://frontend-test.idaproject.com/api/product?category=1'
-    ).then(res => res.json())
-  },
-  data () {
-    return {
-      products: []
+  props: {
+    products: {
+      type: Array,
+      required: false,
+      default () {
+        return []
+      }
     }
   }
 }

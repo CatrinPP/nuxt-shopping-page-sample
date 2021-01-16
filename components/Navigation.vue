@@ -2,6 +2,7 @@
   <nav class="navigation">
     <Category
       v-for="category in categories"
+      :id="category.id"
       :key="category.id"
       :name="category.name"
     />
