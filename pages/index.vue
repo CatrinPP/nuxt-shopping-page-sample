@@ -23,11 +23,7 @@
             <p>Сортировать по:</p>
           </section>
         </div>
-        <nav>
-          <p>Рюкзаки</p>
-          <p>Футболки</p>
-          <p>Рубашки</p>
-        </nav>
+        <Navigation />
         <CatalogueList count="20" />
       </div>
     </main>
