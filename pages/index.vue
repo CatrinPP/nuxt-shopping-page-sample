@@ -1,29 +1,36 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
-        ida-nuxt
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+  <div>
+    <header class="header">
+      <div class="container">
+        <div class="header__wrapper">
+          <p class="title">
+            TestList
+          </p>
+          <button class="cart">
+            <IconCart />
+          </button>
+        </div>
       </div>
-    </div>
+    </header>
+
+    <main class="main">
+      <div class="container">
+        <div class="top">
+          <h1 class="title">
+            Каталог
+          </h1>
+          <section class="sort">
+            <p>Сортировать по:</p>
+          </section>
+        </div>
+        <nav>
+          <p>Рюкзаки</p>
+          <p>Футболки</p>
+          <p>Рубашки</p>
+        </nav>
+        <CatalogueList count="20" />
+      </div>
+    </main>
   </div>
 </template>
 
@@ -33,12 +40,29 @@ export default {}
 
 <style>
 .container {
-  margin: 0 auto;
-  min-height: 100vh;
+  width: 100%;
+  padding-left: 88px;
+  padding-right: 88px;
+}
+
+.header {
+  width: 100%;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  border-radius: 0 0 8px 8px;
+}
+
+.header__wrapper {
   display: flex;
-  justify-content: center;
   align-items: center;
-  text-align: center;
+  justify-content: space-between;
+}
+
+.top {
+  display: flex;
+  align-items: baseline;
 }
 
 .title {
@@ -54,9 +78,8 @@ export default {}
     sans-serif;
   display: block;
   font-weight: 300;
-  font-size: 100px;
+  font-size: 22px;
   color: #35495e;
-  letter-spacing: 1px;
 }
 
 .subtitle {
@@ -65,9 +88,5 @@ export default {}
   color: #526488;
   word-spacing: 5px;
   padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
 }
 </style>
