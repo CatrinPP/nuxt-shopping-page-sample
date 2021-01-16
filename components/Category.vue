@@ -1,10 +1,11 @@
 <template>
-  <button class="category" @click="onClick(id)">
+  <button :class="{'active': id === activeCategory}" class="category" @click="onClick(id)">
     <span>{{ name }}</span>
   </button>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   props: {
     name: {
@@ -15,6 +16,11 @@ export default {
       type: Number,
       required: true
     }
+  },
+  computed: {
+    ...mapState({
+      activeCategory: 'category'
+    })
   },
   methods: {
     async onClick (id) {
@@ -32,5 +38,10 @@ export default {
 <style lang="scss">
   .category {
     font-size: 16px;
+
+    &.active {
+      background: none;
+      border: none;
+    }
   }
 </style>

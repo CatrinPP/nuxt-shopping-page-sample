@@ -1,12 +1,15 @@
 <template>
-  <div>
+  <div class="page">
     <header class="header">
       <div class="container">
         <div class="header__wrapper">
           <p class="title">
             TestList
           </p>
-          <button class="cart">
+          <button
+            class="cart"
+            @click="onCartButtonClick"
+          >
             <IconCart />
           </button>
         </div>
@@ -27,6 +30,7 @@
         <CatalogueList :products="products" />
       </div>
     </main>
+    <Cart />
   </div>
 </template>
 
@@ -44,11 +48,20 @@ export default {
     ...mapState({
       products: 'productsList'
     })
+  },
+  methods: {
+    onCartButtonClick () {
+      this.$store.commit('SHOW_CART')
+    }
   }
 }
 </script>
 
 <style>
+.page {
+  position: relative;
+}
+
 .container {
   width: 100%;
   padding-left: 88px;
@@ -90,13 +103,5 @@ export default {
   font-weight: 300;
   font-size: 22px;
   color: #35495e;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
 }
 </style>

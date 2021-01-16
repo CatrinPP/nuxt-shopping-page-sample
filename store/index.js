@@ -1,6 +1,7 @@
 export const state = () => ({
   category: 1,
-  productsList: []
+  productsList: [],
+  showCart: false
 })
 
 export const mutations = {
@@ -9,6 +10,12 @@ export const mutations = {
   },
   SET_PRODUCTS_LIST (state, products) {
     state.productsList = products
+  },
+  SHOW_CART (state) {
+    state.showCart = true
+  },
+  HIDE_CART (state) {
+    state.showCart = false
   }
 }
 
