@@ -1,0 +1,11 @@
+@mixin ptsans($font, $weight) {
+  @font-face {
+    font-family: "PT Sans";
+    src:
+      url("~assets/fonts/ptsans-#{$font}.woff2") format("woff2"),
+      url("~assets/fonts/ptsans-#{$font}.woff") format("woff");
+    font-weight: $weight;
+    font-style: normal;
+    font-display: swap;
+  }
+}

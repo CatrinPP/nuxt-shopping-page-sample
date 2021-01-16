@@ -34,16 +34,14 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .page {
   position: relative;
   padding-top: 90px;
-}
-
-.container {
-  width: 100%;
-  padding-left: 88px;
-  padding-right: 88px;
+  font-family: $font-main;
+  font-size: 16px;
+  line-height: 1.2em;
+  background-color: #fff;
 }
 
 .top {

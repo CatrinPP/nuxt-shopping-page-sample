@@ -1,0 +1,22 @@
+//Цвета
+$black: #000;
+$dark: #1f1f1f;
+$white: #fff;
+$gray: #59606d;
+$grayLight: #959dad;
+$grayExtraLight: #f8f8f8;
+
+$color-main: $dark;
+$color-secondary: $gray;
+$color-button: $dark;
+$color-font--main: $dark;
+$color-font--secondary: $gray;
+
+//Шрифты
+$font-main: "PT Sans", "Arial", sans-serif;
+
+//Версии экранов
+$mobile-width: 767px;
+$tablet-width: 1023px;
+$retina-dpi: 144dpi;
+$retina-dppx: 1.5dppx;

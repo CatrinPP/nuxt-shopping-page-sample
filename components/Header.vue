@@ -1,5 +1,5 @@
 <template>
-  <header class="header" :class="$style.header">
+  <header :class="$style.header">
     <div class="container">
       <div :class="$style.header__wrapper">
         <p :class="$style.header__title">

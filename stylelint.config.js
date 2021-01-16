@@ -2,7 +2,9 @@ module.exports = {
   extends: [
     'stylelint-config-standard'
   ],
-  // add your custom config here
-  // https://stylelint.io/user-guide/configuration
-  rules: {}
+  rules: {
+    'declaration-no-important': true,
+    indentation: [2, { ignore: ['inside-parens'] }],
+    'at-rule-no-unknown': null
+  }
 }
