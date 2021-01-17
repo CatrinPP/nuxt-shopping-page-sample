@@ -1,5 +1,5 @@
 <template>
-  <div :class="[{'cards--cart': isCart}, $style.cards]">
+  <div :class="[isCart && $style.cards_cart, $style.cards]">
     <Card
       v-for="product in products"
       :id="product.id"
@@ -39,6 +39,10 @@ export default {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+
+    &_cart {
+      flex-direction: column;
+    }
   }
 
 </style>

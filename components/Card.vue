@@ -1,5 +1,5 @@
 <template>
-  <div :class="[{'card--cart': isCart}, $style.card]">
+  <div :class="[isCart && $style.card_cart , $style.card]">
     <div :class="$style.card__top">
       <div :class="$style.card__rating">
         <IconStar :id="id" :rating="rating" />
@@ -116,16 +116,6 @@ export default {
       }
     }
 
-    &--cart {
-      .add-btn {
-        display: none;
-      }
-
-      .delete-btn {
-        display: block;
-      }
-    }
-
     &__image {
       max-width: 80%;
       max-height: 100%;
@@ -141,6 +131,50 @@ export default {
     &__price {
       font-weight: 700;
       font-size: 14px;
+    }
+
+    &.card_cart {
+      position: relative;
+      width: 100%;
+      height: 120px;
+      padding-left: 130px;
+      padding-right: 50px;
+
+      .card__add {
+        display: none;
+      }
+
+      .card__delete {
+        position: absolute;
+        right: 16px;
+        top: 44px;
+        display: block;
+      }
+
+      .card__image {
+        position: absolute;
+        left: 25px;
+        top: 15px;
+        max-height: 90px;
+        max-width: 71px;
+      }
+
+      .card__top {
+        order: 1;
+      }
+
+      .card__name {
+        margin-bottom: 6px;
+        font-size: 14px;
+        color: $color-font--secondary;
+        text-transform: capitalize;
+      }
+
+      .card__price {
+        font-weight: 700;
+        font-size: 14px;
+        color: $color-font--main;
+      }
     }
   }
 

@@ -15,7 +15,7 @@
         </button>
       </div>
     </div>
-    <Cart />
+    <!-- <Cart /> -->
   </header>
 </template>
 
@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     onCartButtonClick () {
-      this.$store.commit('SHOW_CART')
+      this.$store.commit('SHOW_MODAL')
     }
   }
 }

@@ -15,6 +15,7 @@
         </div>
       </div>
     </main>
+    <Modal />
   </div>
 </template>
 

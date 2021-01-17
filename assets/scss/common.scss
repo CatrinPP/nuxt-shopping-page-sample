@@ -18,5 +18,18 @@
   &--big {
     width: 100%;
     max-width: 364px;
+    padding: 14px;
+    color: $white;
+    font-size: 16px;
+    text-align: center;
+    background-color: $color-main;
+    border-radius: 8px;
+    transition: all 0.2s linear;
+
+    &:hover,
+    &:focus {
+      outline: none;
+      background-color: $color-secondary;
+    }
   }
 }

@@ -1,7 +1,7 @@
 export const state = () => ({
   category: 1,
   productsList: [],
-  showCart: false,
+  showModal: false,
   selectedProducts: [],
   sortType: 'price',
   sortMenuShow: false,
@@ -15,11 +15,15 @@ export const mutations = {
   SET_PRODUCTS_LIST (state, products) {
     state.productsList = products
   },
-  SHOW_CART (state) {
-    state.showCart = true
+  SHOW_MODAL (state) {
+    state.showModal = true
+    document.body.style.height = '100vh'
+    document.body.style.overflow = 'hidden'
   },
-  HIDE_CART (state) {
-    state.showCart = false
+  HIDE_MODAL (state) {
+    state.showModal = false
+    document.body.style.height = 'auto'
+    document.body.style.overflow = 'auto'
   },
   ADD_TO_CART (state, id) {
     state.selectedProducts.push(state.productsList.find(it => it.id === id))

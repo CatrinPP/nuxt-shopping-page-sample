@@ -50,7 +50,7 @@ export default {
       type: Number,
       required: false,
       default () {
-        return ''
+        return null
       }
     }
   },
