@@ -40,6 +40,7 @@ export default {
   padding-top: 90px;
   font-family: $font-main;
   font-size: 16px;
+  font-weight: 400;
   line-height: 1.2em;
   background-color: #fff;
 }

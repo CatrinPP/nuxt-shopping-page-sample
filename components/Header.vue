@@ -6,10 +6,12 @@
           TestList
         </p>
         <button
-          class="cart"
+          class="button button--cart"
+          :class="$style.header__button"
           @click="onCartButtonClick"
         >
           <IconCart />
+          <span v-if="products.length > 0" :class="$style.header__selected">{{ products.length }}</span>
         </button>
       </div>
     </div>
@@ -18,7 +20,13 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
+  computed: {
+    ...mapState({
+      products: 'selectedProducts'
+    })
+  },
   methods: {
     onCartButtonClick () {
       this.$store.commit('SHOW_CART')
@@ -48,6 +56,32 @@ export default {
 
   &__title {
     font-size: 22px;
+    color: $color-font--secondary;
+  }
+
+  &__selected {
+    position: absolute;
+    right: 6px;
+    top: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12px;
+    height: 12px;
+    font-size: 8px;
+    color: $white;
+    font-weight: 700;
+    border-radius: 50%;
+    background-color: $grayLight;
+    transition: all 0.3s linear;
+  }
+
+  &__button {
+    &:hover {
+      .header__selected {
+        transform: scale(1.4);
+      }
+    }
   }
 }
 </style>
