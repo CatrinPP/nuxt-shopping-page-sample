@@ -4,6 +4,7 @@ export const state = () => ({
   showCart: false,
   selectedProducts: [],
   sortType: 'price',
+  sortMenuShow: false,
   successOrderStatus: false
 })
 
@@ -43,6 +44,9 @@ export const mutations = {
   },
   CLEAR_SELECTED_PRODUCTS (state) {
     state.selectedProducts.length = 0
+  },
+  TOGGLE_SORT_MENU_SHOW (state) {
+    state.sortMenuShow = !state.sortMenuShow
   }
 }
 
