@@ -51,6 +51,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-right: 16px;
   }
 
   &__title {
@@ -60,8 +61,8 @@ export default {
 
   &__selected {
     position: absolute;
-    right: 6px;
-    top: 6px;
+    right: 0;
+    top: 0;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -51,6 +51,8 @@ export default {
 .top {
   display: flex;
   align-items: baseline;
+  margin-top: 15px;
+  margin-bottom: 18px;
 }
 
 .title {

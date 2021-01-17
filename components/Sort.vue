@@ -87,6 +87,7 @@ export default {
       position: absolute;
       right: 0;
       top: 30px;
+      z-index: 10;
       display: none;
       min-width: 160px;
       padding-top: 8px;

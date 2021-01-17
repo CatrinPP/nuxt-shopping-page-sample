@@ -26,6 +26,9 @@ export const mutations = {
     document.body.style.overflow = 'auto'
   },
   ADD_TO_CART (state, id) {
+    if (state.selectedProducts.some(it => it.id === id)) {
+      return
+    }
     state.selectedProducts.push(state.productsList.find(it => it.id === id))
   },
   DELETE_FROM_CART (state, id) {
@@ -47,7 +50,7 @@ export const mutations = {
     state.successOrderStatus = false
   },
   CLEAR_SELECTED_PRODUCTS (state) {
-    state.selectedProducts.length = 0
+    state.selectedProducts = []
   },
   TOGGLE_SORT_MENU_SHOW (state) {
     state.sortMenuShow = !state.sortMenuShow

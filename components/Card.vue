@@ -161,6 +161,8 @@ export default {
 
       .card__top {
         order: 1;
+        margin-bottom: 0;
+        margin-top: auto;
       }
 
       .card__name {

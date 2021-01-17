@@ -1,18 +1,12 @@
 # ida-nuxt
 
-## Build Setup
+## Запуск проекта на локальной машине
 
 ```bash
-# install dependencies
+# Установка зависимостей
 $ yarn install
 
-# serve with hot reload at localhost:3000
+# Развернуть dev версию на локальном сервере localhost:3000
 $ yarn dev
 
-# build for production and launch server
-$ yarn build
-$ yarn start
-
-# generate static project
-$ yarn generate
 ```

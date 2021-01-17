@@ -14,7 +14,9 @@
     </div>
     <div v-else :class="$style.cart__filled">
       <div v-if="products.length > 0">
-        <p>Товары в корзине:</p>
+        <p :class="$style.cart__subtitle">
+          Товары в корзине:
+        </p>
         <Cards :products="products" :isCart="true" />
         <OrderForm />
       </div>
@@ -122,12 +124,10 @@ export default {
       }
     }
 
-    &__filled {
-      p {
-        margin-bottom: 16px;
-        font-size: 18px;
-        color: $color-secondary;
-      }
+    &__subtitle {
+      margin-bottom: 16px;
+      font-size: 18px;
+      color: $color-secondary;
     }
 
     &__success {
