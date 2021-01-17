@@ -1,10 +1,10 @@
 <template>
-  <div class="form">
+  <div :class="$style.form">
     <p>Оформить заказ</p>
     <input type="text" placeholder="Ваше имя">
     <input type="tel" placeholder="Телефон" @focus="telInputFormat" @input="telInputFormat" @blur="onBlur">
     <input type="text" placeholder="Адрес">
-    <button type="submit" @click="onSubmitButtonClick">
+    <button class="button button--big" type="submit" @click="onSubmitButtonClick">
       <span>Отправить</span>
     </button>
   </div>
@@ -68,10 +68,35 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" module>
   .form {
     display: flex;
     flex-direction: column;
-  }
+    padding-top: 30px;
 
+    p {
+      font-size: 18px;
+    }
+
+    input {
+      width: 100%;
+      margin-bottom: 16px;
+      padding: 14px;
+      background: $grayExtraLight;
+      border-radius: 8px;
+
+      &::placeholder {
+        color: $color-font--fade;
+        font-size: 16px;
+      }
+
+      &:last-of-type {
+        margin-bottom: 24px;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
 </style>

@@ -15,7 +15,6 @@
         </button>
       </div>
     </div>
-    <!-- <Cart /> -->
   </header>
 </template>
 

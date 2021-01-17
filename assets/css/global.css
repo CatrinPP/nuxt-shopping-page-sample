@@ -22,3 +22,15 @@ ul {
   list-style: none;
   padding: 0;
 }
+
+button {
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: inherit;
+}
+
+input {
+  border: none;
+}
