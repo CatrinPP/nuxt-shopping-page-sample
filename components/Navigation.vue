@@ -1,5 +1,5 @@
 <template>
-  <nav class="navigation">
+  <nav :class="$style.navigation">
     <Category
       v-for="category in categories"
       :id="category.id"
@@ -24,10 +24,11 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" module>
   .navigation {
     display: flex;
     flex-direction: column;
     width: 161px;
+    padding-right: 30px;
   }
 </style>

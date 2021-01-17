@@ -1,5 +1,5 @@
 <template>
-  <button :class="{'active': id === activeCategory}" class="category" @click="onClick(id)">
+  <button class="button" :class="[id === activeCategory ? $style.active : '' , $style.category]" @click="onClick(id)">
     <span>{{ name }}</span>
   </button>
 </template>
@@ -35,13 +35,29 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" module>
   .category {
     font-size: 16px;
+    color: $color-font--fade;
+    text-align: left;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+
+    &:not(.active):hover,
+    &:not(.active):focus {
+      color: $color-font--secondary;
+    }
 
     &.active {
-      background: none;
-      border: none;
+      color: $color-font--main;
+      text-decoration: underline;
+      cursor: auto;
     }
   }
 </style>

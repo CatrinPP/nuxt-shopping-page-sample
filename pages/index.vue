@@ -1,16 +1,18 @@
 <template>
-  <div class="page">
+  <div :class="$style.page">
     <Header />
-    <main class="main">
+    <main :class="$style.main">
       <div class="container">
-        <div class="top">
-          <h1 class="title">
+        <div :class="$style.top">
+          <h1 :class="$style.title">
             Каталог
           </h1>
           <Sort />
         </div>
-        <Navigation />
-        <CatalogueList :products="products" />
+        <div :class="$style.mid">
+          <Navigation />
+          <CatalogueList :products="products" />
+        </div>
       </div>
     </main>
   </div>
@@ -34,7 +36,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" module>
 .page {
   position: relative;
   padding-top: 90px;
@@ -51,19 +53,14 @@ export default {
 }
 
 .title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 22px;
-  color: #35495e;
+  font-weight: 700;
+  font-size: 32px;
+  color: $color-font--main;
+}
+
+.mid {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
 }
 </style>
