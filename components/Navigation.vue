@@ -28,6 +28,7 @@ export default {
   .navigation {
     display: flex;
     flex-direction: column;
+    flex-shrink: 0;
     width: 161px;
     padding-right: 30px;
   }

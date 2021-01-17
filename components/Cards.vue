@@ -1,12 +1,12 @@
 <template>
-  <div class="catalogue" :class="{'catalogue--cart': isCart}">
+  <div :class="[{'cards--cart': isCart}, $style.cards]">
     <Card
       v-for="product in products"
       :id="product.id"
       :key="product.id"
       :photo="product.photo"
-      :price="product.price"
-      :name="product.name"
+      :price="product.price.toLocaleString()"
+      :name="product.name.toLowerCase()"
       :rating="product.rating"
       :isCart="isCart"
     />
@@ -34,11 +34,11 @@ export default {
 }
 </script>
 
-<style lang="scss">
-  .catalogue {
+<style lang="scss" module>
+  .cards {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 
 </style>

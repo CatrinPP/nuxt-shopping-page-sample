@@ -11,7 +11,7 @@
         </div>
         <div :class="$style.mid">
           <Navigation />
-          <CatalogueList :products="products" />
+          <Cards :products="products" />
         </div>
       </div>
     </main>

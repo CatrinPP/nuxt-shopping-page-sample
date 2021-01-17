@@ -10,7 +10,7 @@
     <div v-else>
       <div v-if="products.length > 0">
         <p>Товары в корзине:</p>
-        <CatalogueList :products="products" :isCart="true" />
+        <Cards :products="products" :isCart="true" />
         <OrderForm />
       </div>
       <div v-else>

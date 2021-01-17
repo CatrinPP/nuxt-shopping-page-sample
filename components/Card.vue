@@ -1,22 +1,22 @@
 <template>
-  <div class="card" :class="{'card--cart': isCart}">
-    <div class="top">
-      <div class="popularity">
-        <IconStar />
+  <div :class="[{'card--cart': isCart}, $style.card]">
+    <div :class="$style.card__top">
+      <div :class="$style.card__rating">
+        <IconStar :id="id" :rating="rating" />
         <span>{{ rating }}</span>
       </div>
-      <img class="image" :src="`https://frontend-test.idaproject.com${photo}`" :alt="name">
-      <button class="add-btn" @click="onAddToCartButtonClick(id)">
-        <IconCart />
+      <img :class="$style.card__image" :src="`https://frontend-test.idaproject.com${photo}`" :alt="name">
+      <button class="button" :class="$style.card__add" type="button" @click="onAddToCartButtonClick(id)">
+        <IconCart :id="id" :color="'#959dad'" :size="'16px'" />
       </button>
-      <button class="delete-btn" @click="onDeleteButtonClick(id)">
+      <button class="button" :class="$style.card__delete" type="button" @click="onDeleteButtonClick(id)">
         <IconTrash />
       </button>
     </div>
-    <p class="name">
+    <p :class="$style.card__name">
       {{ name }}
     </p>
-    <p class="price">
+    <p :class="$style.card__price">
       {{ price }} ₽
     </p>
   </div>
@@ -34,7 +34,7 @@ export default {
       required: true
     },
     price: {
-      type: Number,
+      type: String,
       required: true
     },
     name: {
@@ -64,24 +64,56 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" module>
   .card {
-    width: 264px;
+    width: calc((100% - 48px) / 4);
+    height: 272px;
+    display: flex;
+    flex-direction: column;
     padding: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
     background: #fff;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
     border-radius: 8px;
 
-    .top {
+    &:nth-child(4n) {
+      margin-right: 0;
+    }
+
+    &__top {
+      display: flex;
       align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: auto;
     }
 
-    .add-btn {
+    &__rating {
+      display: flex;
+      align-items: center;
+
+      span {
+        margin-left: 2px;
+        color: $gold;
+        font-size: 10px;
+        font-weight: 700;
+      }
+    }
+
+    &__add {
       display: block;
+
+      &:focus {
+        outline: none;
+      }
     }
 
-    .delete-btn {
+    &__delete {
       display: none;
+
+      &:focus {
+        outline: none;
+      }
     }
 
     &--cart {
@@ -93,10 +125,23 @@ export default {
         display: block;
       }
     }
-  }
 
-  .image {
-    width: 142px;
+    &__image {
+      max-width: 80%;
+      max-height: 100%;
+    }
+
+    &__name {
+      margin-bottom: 6px;
+      font-size: 14px;
+      color: $color-font--secondary;
+      text-transform: capitalize;
+    }
+
+    &__price {
+      font-weight: 700;
+      font-size: 14px;
+    }
   }
 
 </style>
